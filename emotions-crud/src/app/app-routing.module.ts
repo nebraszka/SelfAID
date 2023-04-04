@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmotionsComponent } from './emotions/emotions.component';
 
 const routes: Routes = [
-  { path: 'emotions', component: EmotionsComponent }
+  { path: 'emotions', component: EmotionsComponent },
+  { path: '', redirectTo: '/emotions', pathMatch: 'full' },
 ]
 
 @NgModule({

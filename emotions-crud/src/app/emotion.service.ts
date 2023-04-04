@@ -18,4 +18,8 @@ export class EmotionService {
   getEmotions(): Observable<Emotion[]> {
     return this.http.get<Emotion[]>(this.emotionsUrl);
   }
+
+  addEmotion(emotion: Emotion): Observable<Emotion> {
+    return this.http.post<Emotion>(this.emotionsUrl, emotion, this.httpOptions);
+  }
 }
