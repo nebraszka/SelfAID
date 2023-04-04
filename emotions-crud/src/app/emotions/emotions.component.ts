@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Emotion } from '../emotion';
+import { EmotionService } from '../emotion.service';
 
 @Component({
   selector: 'app-emotion',
@@ -7,10 +9,17 @@ import { Emotion } from '../emotion';
   styleUrls: ['./emotions.component.css']
 })
 export class EmotionsComponent {
-  emotions: Emotion[] = []
-  emotion: Emotion = {id: 1, name: 'złość', description: 'opis'};
 
-  constructor(){
-    this.emotions.push(this.emotion);
+  emotions: Emotion[] = []
+
+  constructor(private emotionService: EmotionService) { }
+
+  ngOnInit(){
+    this.getEmotions();
+  }
+
+  getEmotions(): void {
+   this.emotionService.getEmotions()
+   .subscribe(emotions => this.emotions = emotions)
   }
 }

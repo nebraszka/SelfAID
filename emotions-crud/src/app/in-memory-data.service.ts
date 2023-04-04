@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class InMemoryDataService implements InMemoryDbService{
   createDb() {
     const emotions = [
-      {id: 1, name: 'radość'}
+      {id: 1, name: 'radość'},
+      {id: 3, name: 'strach'}
     ];
     return {emotions};
   }
