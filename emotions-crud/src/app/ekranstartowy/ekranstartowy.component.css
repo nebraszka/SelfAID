@@ -1,0 +1,107 @@
+:host {
+    display: contents;
+}
+
+.ekranstartowy-main-screen {
+background: #1E1E1E;
+}
+
+.ekranstartowy-rectangle-main-screen {
+    left: 0.26%;
+    right: -0.26%;
+    top: 25.12%;
+    bottom: 0%;
+    width: 100%;
+    position: absolute;
+}
+
+.ekranstartowy-text {
+    top: 553px;
+    left: 55px;
+    color: rgba(0, 0, 0, 1);
+    width: 288px;
+    height: auto;
+    position: absolute;
+    font-size: 18px;
+    align-self: auto;
+    font-style: Regular;
+    text-align: center;
+    font-family: Nunito;
+    font-weight: 400;
+    line-height: 30px;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+.ekranstartowy-napis--logo {
+    top: 68px;
+    left: 20px;
+    width: 350px;
+    height: 211px;
+    position: absolute;
+    border-color: transparent;
+}
+
+.ekranstartowy-text2 {
+    top: 483px;
+    left: 58px;
+    color: var(--dl-color-default-nagwek);
+    width: 288px;
+    height: auto;
+    position: absolute;
+    font-size: 34px;
+    align-self: auto;
+    font-style: Bold;
+    text-align: center;
+    font-family: Nunito;
+    font-weight: 700;
+    line-height: 30px;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+.ekranstartowy-zaczynamy {
+    /* Zaczynamy  */
+
+    position: absolute;
+    width: 288px;
+    height: 55px;
+    left: calc(50% - 288px/2);
+    bottom: 103px;
+
+    /* Guzik Zaczynamy */
+    background: linear-gradient(0deg, rgba(255, 174, 187, 0.43), rgba(255, 174, 187, 0.43)), #E273A0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+    border-radius: 999px;
+}
+
+.ekranstartowy-text7 {
+    top: 19px;
+    left: 89px;
+    color: rgba(255, 255, 255, 1);
+    height: auto;
+    position: absolute;
+    font-size: 18px;
+    align-self: auto;
+    font-style: SemiBold;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 100%;
+    font-stretch: normal;
+    margin-right: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+
+.ekranstartowy-vector {
+    position: absolute;
+    width: 50%;
+    height: 20%;
+    left: 25%;
+    top: 30%;   
+}

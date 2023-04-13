@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { Ekranstartowy } from './ekranstartowy/ekranstartowy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmotionsComponent,
-    EmotionDetailComponent
+    EmotionDetailComponent,
+    Ekranstartowy
   ],
   imports: [
     BrowserModule,
