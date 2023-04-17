@@ -1,10 +1,17 @@
 <div>
+    <label>Emotion name: </label>
+    <input #emotionName />
+    <button (click)="addEmotion(emotionName.value); emotionName.value=''">
+        Add new emotion
+    </button>
+</div>
+<br>
+<div>
     <li *ngFor="let emotion of (emotions$ | async)">
         <a>
+            <button (click)="deleteEmotion(emotion);">Delete</button>
             <span>id: {{emotion.id}}, </span>
             <span>name: {{emotion.name}}</span>
         </a>    
 </div>
-<br>
-<button (click)="addEmotion();">TEST</button>
 

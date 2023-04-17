@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Emotion, NewEmotion } from '../emotion';
-import { EmotionService } from '../emotion.service';
 import { IndexedDBService } from '../indexed-db.service';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -21,12 +20,16 @@ export class EmotionsComponent {
     this.emotions$ = this.indexedDBService.emotions;
   }
 
-  async addEmotion() {
+  async addEmotion(name: string) {
     const emotion: NewEmotion = {
-      name: "blabla",
-      description: " blaaaaa"
+      name: name,
+      description: ""
     };
 
     await this.indexedDBService.addEmotion(emotion);
+  }
+
+  async deleteEmotion(emotion: Emotion) {
+    await this.indexedDBService.deleteEmotion(emotion.id);
   }
 }

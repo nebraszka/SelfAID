@@ -42,9 +42,16 @@ export class IndexedDBService {
     return emotions;
   }
 
-  async addToDatabase(value: string){
-    const db = await openDB('crudDatabase', 2);
-    db.add('emotions', value);
+  async deleteEmotion(emotionId: string|IDBKeyRange) {
+
+    await this.waitForDb();
+
+    const emotion: any = await this.db.delete('emotions', emotionId);
+
+    this.emotionsSubject.next(await this.getAllEmotions());
+
+    return emotion;
+
   }
 
   get emotions(): Observable<Emotion[]> {
