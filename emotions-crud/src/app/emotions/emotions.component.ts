@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Emotion } from '../emotion';
+import { Emotion, NewEmotion } from '../emotion';
 import { EmotionService } from '../emotion.service';
+import { IndexedDBService } from '../indexed-db.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-emotion',
   templateUrl: './emotions.component.html',
   styleUrls: ['./emotions.component.css']
 })
+
 export class EmotionsComponent {
 
-  emotions: Emotion[] = []
+  emotions$?: Observable<Emotion[]>;
 
-  constructor(private emotionService: EmotionService) { }
+  constructor(private indexedDBService: IndexedDBService) { }
 
-  ngOnInit(){
-    this.getEmotions();
+  async ngOnInit(){
+    this.emotions$ = this.indexedDBService.emotions;
   }
 
-  getEmotions(): void {
-   this.emotionService.getEmotions()
-   .subscribe(emotions => this.emotions = emotions)
-  }
+  async addEmotion() {
+    const emotion: NewEmotion = {
+      name: "blabla",
+      description: " blaaaaa"
+    };
 
-  add(name: string): void {
-    name = name.trim();
-    if(!name) {return;}
-    this.emotionService.addEmotion( {name} as Emotion)
-      .subscribe(emotion => this.emotions.push(emotion));
+    await this.indexedDBService.addEmotion(emotion);
   }
 }
