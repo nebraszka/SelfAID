@@ -2,11 +2,11 @@
     display: contents;
 }
 
-.ekranstartowy-main-screen {
+.main-screen {
 background: #1E1E1E;
 }
 
-.ekranstartowy-rectangle-main-screen {
+.rectangle-main-screen {
     left: 0.26%;
     right: -0.26%;
     top: 25.12%;
@@ -15,13 +15,13 @@ background: #1E1E1E;
     position: absolute;
 }
 
-.ekranstartowy-text {
-    top: 553px;
-    left: 55px;
+.small-text {
     color: rgba(0, 0, 0, 1);
-    width: 288px;
-    height: auto;
     position: absolute;
+    width: 50%;
+    height: 20%;
+    left: 25%;
+    top: 65%;  
     font-size: 18px;
     align-self: auto;
     font-style: Regular;
@@ -35,22 +35,21 @@ background: #1E1E1E;
     text-decoration: none;
 }
 
-.ekranstartowy-napis--logo {
-    top: 68px;
-    left: 20px;
-    width: 350px;
-    height: 211px;
+.text-logo {
+    left: calc(47% - 288px/2);
+    height: 20%;
+    top: 5%;  
     position: absolute;
     border-color: transparent;
 }
 
-.ekranstartowy-text2 {
-    top: 483px;
-    left: 58px;
+.title {
     color: var(--dl-color-default-nagwek);
-    width: 288px;
-    height: auto;
     position: absolute;
+    width: 50%;
+    height: 20%;
+    left: 25%;
+    top: 55%;  
     font-size: 34px;
     align-self: auto;
     font-style: Bold;
@@ -64,7 +63,7 @@ background: #1E1E1E;
     text-decoration: none;
 }
 
-.ekranstartowy-zaczynamy {
+.start-button {
     /* Zaczynamy  */
 
     position: absolute;
@@ -79,7 +78,7 @@ background: #1E1E1E;
     border-radius: 999px;
 }
 
-.ekranstartowy-text7 {
+.start-button-text {
     top: 19px;
     left: 89px;
     color: rgba(255, 255, 255, 1);
@@ -98,7 +97,7 @@ background: #1E1E1E;
     text-decoration: none;
 }
 
-.ekranstartowy-vector {
+.logo {
     position: absolute;
     width: 50%;
     height: 20%;
