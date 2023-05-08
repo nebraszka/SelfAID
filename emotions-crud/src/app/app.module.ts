@@ -9,14 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { Ekranstartowy } from './ekranstartowy/ekranstartowy.component';
+import { StartScreenComponent } from './start-screen/start-screen.component';
+import { EmotionJournalStartComponent } from './emotion-journal-start/emotion-journal-start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmotionsComponent,
     EmotionDetailComponent,
-    Ekranstartowy
+    StartScreenComponent,
+    EmotionJournalStartComponent
   ],
   imports: [
     BrowserModule,
