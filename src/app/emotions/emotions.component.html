@@ -2,7 +2,7 @@
     <h1>Welcome to Emotions CRUD</h1>
     <label>Emotion name: </label>
     <input #emotionName />
-    <button (click)="addEmotion(emotionName.value); emotionName.value=''">
+    <button (click)="addEmotion(encryptionService.encryptData(emotionName.value)); emotionName.value=''">
         Add new emotion
     </button>
 </div>
@@ -12,7 +12,11 @@
         <a>
             <button (click)="deleteEmotion(emotion);">Delete</button>
             <span>id: {{emotion.id}}, </span>
-            <span>name: {{emotion.name}}</span>
+            <span>name: {{encryptionService.decryptData(emotion.name)}}</span>
+            <input #newName placeholder="Changed name">
+            <button (click)="updateEmotion(emotion, newName.value); newName.value=''">
+                Update
+            </button>
         </a>    
 </div>
 

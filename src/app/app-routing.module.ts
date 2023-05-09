@@ -6,9 +6,9 @@ import { EmotionJournalStartComponent } from './emotion-journal-start/emotion-jo
 
 const routes: Routes = [
   { path: 'emotions', component: EmotionsComponent },
-  { path: '', redirectTo: '/emotions', pathMatch: 'full' },
-  { path: 'test', component: StartScreenComponent},
-  { path: 'test2', component: EmotionJournalStartComponent}
+  { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+  { path: 'welcome', component: StartScreenComponent},
+  { path: 'emotion-journal', component: EmotionJournalStartComponent}
 ]
 
 @NgModule({

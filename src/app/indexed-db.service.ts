@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { DBSchema, IDBPDatabase, openDB } from 'idb';
 import { Emotion, NewEmotion } from './emotion';
 import { BehaviorSubject, Observable} from 'rxjs';
+import { EncryptionService } from './encryption.service';
 
 interface MyDB extends DBSchema {
   emotions: {
@@ -17,7 +18,7 @@ export class IndexedDBService {
   private emotionsSubject = new BehaviorSubject<Emotion[]>([]);
   db!: IDBPDatabase<MyDB>;
 
-  constructor() {
+  constructor(private encryptionService : EncryptionService) {
     this.createDb().then(db => {
       this.db = db;
       this.getAllEmotions().then(emotions => this.emotionsSubject.next(emotions));
@@ -52,6 +53,23 @@ export class IndexedDBService {
 
     return emotion;
 
+  }
+
+  async updateEmotion(emotionId: string | IDBKeyRange, newName: string) {
+    await this.waitForDb();
+  
+    const emotion = await this.db.get('emotions', emotionId);
+  
+    if (emotion) {
+      const updatedEmotion = {
+        ...emotion,
+        name: this.encryptionService.encryptData(newName)
+      };
+
+      await this.db.put('emotions', {name: updatedEmotion.name, description:'', id: emotion.id});
+      
+      this.emotionsSubject.next(await this.getAllEmotions());
+    }
   }
 
   get emotions(): Observable<Emotion[]> {
