@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
 
-    font-family:Nunito;
+    font-family:Varela;
     color:rgba(0, 0, 0, 0.6800000071525574);
     text-align:center;
     vertical-align:text-middle;
@@ -106,7 +106,7 @@
     {
         font-size: 15px;
         color: rgba(255, 255, 255, 1);
-        font-family: Montserrat;
+        font-family: Varela;
         font-style: SemiBold;
         font-weight: 600;
     }

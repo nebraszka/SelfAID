@@ -10,7 +10,7 @@
     justify-content: flex-end;
     align-items: center;
 
-    font-family:Nunito;
+    font-family:Varela;
     color:rgba(0, 0, 0, 0.6800000071525574);
     text-align:center;
     vertical-align:text-middle;
@@ -118,7 +118,6 @@
     {
         color: rgba(255, 255, 255, 1);
         font-size: 15px;
-        font-style: SemiBold;
         text-align: center;
         font-weight: 600;
     }
