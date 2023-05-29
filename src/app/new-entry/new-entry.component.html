@@ -1,0 +1,54 @@
+<div class="container">
+  <form>
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3 pt-3">
+      <label>Data wpisu</label>
+      <input type="text" placeholder="Wybierz datę" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+    </div>
+
+    <div class="form-group">
+      <label for="inputTitle">Tytuł</label>
+      <input type="text" class="form-control" id="inputTitle" placeholder="Podaj tytuł">
+      <small id="titleHelp" class="form-text text-muted">Tytuł jest opcjonalny.</small>
+    </div>
+
+    <div class="dropdown pt-3">
+      <button class="btn btn-secondary dropdown-toggle full-width-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ selectedEmotion || 'Wybierz emocje' }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button class="dropdown-item" type="button" (click)="selectEmotion('Emocja1')">Emocja1</button>
+        <button class="dropdown-item" type="button" (click)="selectEmotion('Emocja2')">Emocja2</button>
+        <button class="dropdown-item" type="button" (click)="selectEmotion('Emocja3')">Emocja3</button>
+      </div>
+    </div>
+
+    <div class="form-group pt-3">
+      <label for="inputQuestion1">Pytanie1</label>
+      <input type="text" class="form-control" id="inputQuestion1" placeholder="Odpowiedź1">
+    </div>
+
+    <!-- Question text with checkbox to answer -->
+    <div class="form-group pt-3">
+      <label for="exampleInputEmail1">Pytanie wielokrotnego wyboru</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+          Odp1
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+          Odp2
+        </label>
+      </div>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <p class="py-3"></p>
+      <button type="submit" class="btn btn-primary">Zapisz</button>
+    </div>
+
+  </form>
+
+</div>

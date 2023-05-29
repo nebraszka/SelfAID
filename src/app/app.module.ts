@@ -8,6 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { StartScreenComponent } from './start-screen/start-screen.component';
 import { EmotionJournalStartComponent } from './emotion-journal-start/emotion-journal-start.component';
+import { NewEntryComponent } from './new-entry/new-entry.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
+import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 
 @NgModule({
   declarations: [
@@ -15,11 +22,16 @@ import { EmotionJournalStartComponent } from './emotion-journal-start/emotion-jo
     EmotionsComponent,
     EmotionDetailComponent,
     StartScreenComponent,
-    EmotionJournalStartComponent
+    EmotionJournalStartComponent,
+    NewEntryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    MdbDropdownModule
   ],
   bootstrap: [AppComponent]
 })

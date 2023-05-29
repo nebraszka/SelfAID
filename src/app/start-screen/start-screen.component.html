@@ -1,28 +1,26 @@
-<div class="container">
- 
-  <div class="text-logo-container">
-    <img src="assets/text_logo.png" class="text-logo"/>
+<div class="container-md justify-content-center">
+  <div class="col">
+    <div class="row">
+      <div style="width: 100%;">
+        <img src="assets/text_logo.png" class="img-fluid mx-auto d-block" />
+      </div>
+    </div>
+    <div class="row">
+      <div style="position: relative;">
+        <img src="assets/rectangle_main_screen.svg" class="img-fluid"
+          style="position: absolute; width: 100%; top: 0; left: 0; object-fit: cover; max-height: 100vh; transform-origin: top center;" />
+        <img src="assets/logo.svg" class="mx-auto d-block"
+          style="position: absolute; top: 80px; left: 50%; transform: translateX(-50%);" />
+        <p class="carousel-caption"
+          style="position: absolute; width: 100%; top: 200px; left: 50%; transform: translateX(-50%);">
+          Zacznij monitorować swoje emocje za pomocą aplikacji SelfAID
+        </p>
+        <button (click)="router.navigate(['/emotion-journal']);" type="submit"
+          style="position: absolute; width: 60%; top: 380px; left: 50%; transform: translateX(-50%);"
+          class="btn btn-primary">
+          Zaczynamy!
+        </button>
+      </div>
+    </div>
   </div>
-
-  <div class="rectangle-container">
-
-    <img src="assets/logo.svg" class="logo" />
-
-    <img src="assets/svg.svg" class="rectangle" />
-    
-    <span class="small-text">
-      Zacznij monitorować swoje emocje za pomocą aplikacji SelfAID
-    </span>
-   <span class="title">
-      Dziennik emocji
-  </span>
-
-    <button (click)="router.navigate(['/emotion-journal']);" class="start-button">
-      <span class="start-button-text">
-        Zaczynamy!
-      </span>
-    </button>
-
-  </div>
-
 </div>

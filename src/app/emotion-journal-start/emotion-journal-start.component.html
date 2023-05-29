@@ -1,15 +1,15 @@
-<div class='container'>
+<div class='my-container'>
 
-    <div class="header-container">
-        <div class="header-name">Dziennik emocji</div>
-        <div class="header-menu-icon">
+    <div class="my-header-container">
+        <div class="my-header-name">Dziennik emocji</div>
+        <div class="my-header-menu-icon">
             <img src="assets/menu_icon.svg">
         </div>
     </div>
 
-    <div class='rectangle'>
-        <img id='logo' class='logo' src='assets/logo.svg' />
-        <div id='text-info' class='text-info'>
+    <div class='my-rectangle'>
+        <img id='logo' class='my-logo' src='assets/logo.svg' />
+        <div id='text-info' class='my-text-info'>
             To miejsce służy do monitorowania Twoich emocji.
             Dodaj swój pierwszy wpis z zarejestrowaną przez
             Ciebie emocją.
@@ -17,8 +17,16 @@
     </div>
 
 
-    <button (click)="router.navigate(['/emotions']);" class='button-create-entry'>
+    <button (click)="router.navigate(['/new-entry']);" class='my-button-create-entry'>
         <div class='button-create-entry-text'>
-            Dodaj wpis</div>
-        </button>
+            Dodaj wpis
+        </div>
+    </button>
+
+    <button (click)="router.navigate(['/emotions']);" class='my-button-create-entry'>
+        <div class='button-create-entry-text'>
+            CRUD
+        </div>
+    </button>
+
 </div>
