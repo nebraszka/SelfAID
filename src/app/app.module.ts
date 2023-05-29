@@ -16,6 +16,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
     FormsModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    MdbDropdownModule
+    MdbDropdownModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

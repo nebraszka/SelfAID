@@ -1,33 +1,37 @@
 <div class="container">
-  <form>
-    <div class="col-xs-12 col-12 col-md-4 form-group mb-3 pt-3">
+  <form [formGroup]="journalForm" (ngSubmit)="submit()"> 
+    <!-- Entry date -->
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3 pt-3 form-group">
       <label>Data wpisu</label>
-      <input type="text" placeholder="Wybierz datę" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+      <input type="date" formControlName="date" class="form-control" required>
     </div>
-
+    <!-- Entry title -->
     <div class="form-group">
       <label for="inputTitle">Tytuł</label>
-      <input type="text" class="form-control" id="inputTitle" placeholder="Podaj tytuł">
+      <input type="text" formControlName="title" class="form-control" placeholder="Podaj tytuł">
       <small id="titleHelp" class="form-text text-muted">Tytuł jest opcjonalny.</small>
     </div>
-
+    <!-- Entry emotion -->
+    <!-- TODO: Add button to check emotion detail -->
     <div class="dropdown pt-3">
       <button class="btn btn-secondary dropdown-toggle full-width-button" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ selectedEmotion || 'Wybierz emocje' }}
+        {{ journalForm.value.emotion|| 'Wybierz emocje' }}
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button class="dropdown-item" type="button" (click)="selectEmotion('Emocja1')">Emocja1</button>
-        <button class="dropdown-item" type="button" (click)="selectEmotion('Emocja2')">Emocja2</button>
-        <button class="dropdown-item" type="button" (click)="selectEmotion('Emocja3')">Emocja3</button>
+        <button class="dropdown-item" type="button" (click)="onSelectEmotion('Emocja1')">Emocja1</button>
+        <button class="dropdown-item" type="button" (click)="onSelectEmotion('Emocja2')">Emocja2</button>
+        <button class="dropdown-item" type="button" (click)="onSelectEmotion('Emocja3')">Emocja3</button>
       </div>
     </div>
 
+    <!-- TODO: get those questions from database -->
+    <!-- Entry text question -->
     <div class="form-group pt-3">
       <label for="inputQuestion1">Pytanie1</label>
-      <input type="text" class="form-control" id="inputQuestion1" placeholder="Odpowiedź1">
+      <input type="text" formControlName="questionAnswer" class="form-control" id="inputQuestion1" placeholder="Odpowiedź1">
     </div>
 
-    <!-- Question text with checkbox to answer -->
+    <!-- Entry checkbox question
     <div class="form-group pt-3">
       <label for="exampleInputEmail1">Pytanie wielokrotnego wyboru</label>
       <div class="form-check">
@@ -42,8 +46,8 @@
           Odp2
         </label>
       </div>
-    </div>
-
+    </div> -->
+    <!-- Entry save button -->
     <div class="col-md-12 text-center">
       <p class="py-3"></p>
       <button type="submit" class="btn btn-primary">Zapisz</button>
