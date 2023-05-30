@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="journalForm" (ngSubmit)="submit()"> 
     <!-- Entry date -->
-    <div class="col-xs-12 col-12 col-md-4 form-group mb-3 pt-3 form-group">
+    <div class="col-xs-12 col-12 col-md-4 mb-3 pt-3 form-group">
       <label>Data wpisu</label>
       <input type="date" formControlName="date" class="form-control" required>
     </div>
@@ -31,22 +31,23 @@
       <input type="text" formControlName="questionAnswer" class="form-control" id="inputQuestion1" placeholder="Odpowiedź1">
     </div>
 
-    <!-- Entry checkbox question
+    <!-- Entry checkbox question -->
     <div class="form-group pt-3">
       <label for="exampleInputEmail1">Pytanie wielokrotnego wyboru</label>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <input class="form-check-input" type="checkbox" value="Odp1" #checkboxes id="flexCheckChecked1" (change)="onCheckChange($event)">
         <label class="form-check-label" for="flexCheckChecked">
           Odp1
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <input class="form-check-input" type="checkbox" value="Odp2" #checkboxes id="flexCheckChecked2" (change)="onCheckChange($event)">
         <label class="form-check-label" for="flexCheckChecked">
           Odp2
         </label>
       </div>
-    </div> -->
+    </div>
+
     <!-- Entry save button -->
     <div class="col-md-12 text-center">
       <p class="py-3"></p>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, QueryList, ViewChildren, ElementRef } from '@angular/core';
+
+import { FormGroup, FormControl, FormArray, AbstractControl } from '@angular/forms';;
 
 import { Entry } from '../entry';
 import { IndexedDBService } from '../indexed-db.service';
@@ -12,13 +13,15 @@ import { IndexedDBService } from '../indexed-db.service';
 export class NewEntryComponent {
   journalForm: FormGroup;
 
+  @ViewChildren('checkboxes') checkboxes!: QueryList<ElementRef>;
+
   constructor(private indexedDBService: IndexedDBService) { 
     this.journalForm = new FormGroup({
       'date': new FormControl(null),
       'title': new FormControl(null),
       'emotion': new FormControl(null),
-      'questionAnswer': new FormControl(null)//,
-      // 'multipleChoiceAnswer': new FormControl([])
+      'questionAnswer': new FormControl(null),
+      'multipleChoiceAnswer': new FormArray([])
     });
   }
 
@@ -35,15 +38,20 @@ export class NewEntryComponent {
       date: this.journalForm.value.date,
       title: this.journalForm.value.title,
       emotion: this.journalForm.value.emotion,
-      questionAnswer: this.journalForm.value.questionAnswer//,
-      //multipleChoiceAnswer: this.journalForm.value.multipleChoice
+      questionAnswer: this.journalForm.value.questionAnswer,
+      multipleChoiceAnswer: this.journalForm.value.multipleChoiceAnswer
     };
 
     this.indexedDBService.addEntry(newEntry).then(() => {
-      // Reset the form or navigate to other component
+      // Reset
       this.journalForm.reset();
     }, error => {
       console.log(error);
+    });
+
+    (this.journalForm.get('multipleChoiceAnswer') as FormArray).clear();
+    this.checkboxes.forEach((element) => {
+      element.nativeElement.checked = false;
     });
 
     // let newEntry: Entry = this.journalForm.value;
@@ -54,6 +62,25 @@ export class NewEntryComponent {
     // }, error => {
     //   console.log(error);
     // });
+  }
+
+  onCheckChange(event: Event) {
+    const multipleChoiceAnswer: FormArray = this.journalForm.get('multipleChoiceAnswer') as FormArray;
+    const target = event.target as HTMLInputElement;
+  
+    if (target.checked) {
+      multipleChoiceAnswer.push(new FormControl(target.value));
+    } else {
+      let i: number = 0;
+      multipleChoiceAnswer.controls.forEach((item: AbstractControl) => {
+        const control = item as FormControl;
+        if (control.value === target.value) {
+          multipleChoiceAnswer.removeAt(i);
+          return;
+        }
+        i++;
+      });      
+    }
   }
 
 }

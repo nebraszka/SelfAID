@@ -4,5 +4,5 @@ export interface Entry {
     title: string;
     emotion: string;
     questionAnswer: string;
-    //multipleChoiceAnswer: string[];
+    multipleChoiceAnswer: string[];
 }
